@@ -1,9 +1,9 @@
 # Lambdafunction_to_perform_crudoperation_onrds
 
--Basic Introduction:
-The code is written in Nodejs, and Sequelize(with Postgres). The code is deployed and hosted on AWS lambda with AWS RDS database and wehn trigger via http API calls it perfrom crud operation to the rds instance.
+**-Basic Introduction:**
+The code is written in **Nodejs**, and **Sequelize**(with Postgres). The code is deployed and hosted on AWS lambda with AWS RDS database and wehn trigger via http API calls it perfrom crud operation to the rds instance.
 
--Create AWS RDS instance
+**-Create AWS RDS instance**
 ```
 1. Login to your AWS account
 2. Create RDS instance from database services(free tier) with Postgres. (i.e. database-instance1)
@@ -12,22 +12,22 @@ The code is written in Nodejs, and Sequelize(with Postgres). The code is deploye
 5. Let remaining settings be default. After creating RDS instance save the endpoint into clipboard. (You will host your db on this host)
 ```
 
--Connect this rds to your p4admin in your local system
+**-Connect this rds to your p4admin in your local system**
 ```
 1.Create a new server in postgres (i.e. aws_rds)
 2. In the connection tab in hostname/address add the RDS endpoint from AWS.
 3.You will see the database under the aws_rds.
 ```
 
--Create a role for your lambda function 
+**-Create a role for your lambda function **
 ```
 1.Go to IAM. then in roles create a new role
 2. Attach policy to it ( AmazonRDS full access)
 3.Name your lambdarole add tags if you want and save.
 
 ```
--create a lambda function
-
+**-Create a lambda function
+**
 ```
 1.Go to lambda , create a new function (lambdards)
 2.fill requerid infomartion add role from existing role and choose the required role.
@@ -42,10 +42,16 @@ The code is written in Nodejs, and Sequelize(with Postgres). The code is deploye
 8.copy the invoke url in the clipboard
 ```
 
--Run and test the function
+**-Run and test the function**
 ```
 1. deploy the test the function
 2. you can see the logs if the database is connected and check the db in p4admin and you can see the table is created.
 3. Open postman paste the api invoke lambda url and choose the http request of your choice.
 ```
+**NOTE:**
+change the database name password host according to your database in code.
+you need to install the node modules in your folder . write in node terminal 
 
+```
+npm i
+```
